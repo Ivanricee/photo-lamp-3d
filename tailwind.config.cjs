@@ -22,7 +22,7 @@ module.exports = {
       'head-principal':
         'url(https://res.cloudinary.com/ivanrice-c/image/upload/q_90/a_-90/v1679549797/Frontend/photo-lamp-3d/1_gkcgii.webp)',
       'head-title':
-        'linear-gradient(0deg,  rgba(136,246,254,1) 0%, rgba(195,240,252,1) 29%, rgba(212,238,251,1) 68%, rgba(223,236,255,1) 100%);',
+        'linear-gradient(0deg, rgba(212,217,255,1) 0%, rgba(214,237,251,1) 79%, rgba(200,251,255,1) 100%);',
     },
     colors: {
       neonBlue: {
