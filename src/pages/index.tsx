@@ -1,70 +1,42 @@
 import { Layout } from '@/components/Layout'
-import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Home() {
   return (
-    <Layout title="Photo Lamp 3D">
-      <section
-        className="relative bg-head-title flex flex-nowrap flex-col h-screen
-                   sm:aspect-video sm:flex-wrap sm:flex-row sm:w-screen bg-neonBlue-600                "
-      >
-        <div
-          className="xs:max-h-[10rem] relative flex flex-1 flex-grow-1 items-center w-full max-h-[15rem] px-10
-                     sm:3/5"
-        >
-          <div className="absolute left-0 right-0 top-0 sm:hidden ">
-            <Image
-              width={500}
-              height={310}
-              className="w-full"
-              quality={100}
-              src="https://res.cloudinary.com/ivanrice-c/image/upload/q_50/a_90/v1679549797/Frontend/photo-lamp-3d/1_gkcgii.webp"
-              alt="background landing page"
-            />
-          </div>
-          <div className="absolute left-0 right-0 bottom-0 hidden sm:block">
-            <Image
-              width={310}
-              height={500}
-              className="h-full"
-              quality={100}
-              src="https://res.cloudinary.com/ivanrice-c/image/upload/q_100/v1679549797/Frontend/photo-lamp-3d/1_gkcgii.webp"
-              alt="background landing page"
-            />
-          </div>
-          <div className="relative z-10">
-            <h1 className="xs:text-2xl text-3xl mb-1 font-bold  text-purple-900">
+    <Layout title="Home" header={false}>
+      <section className="sm:max-w-[768px] bg-gradient-card-1 rounded-3xl drop-shadow-4xl m-8 p-8 xs:m-4 text-center sm:text-left">
+        <div className="flex flex-wrap justify-center sm:flex-nowrap">
+          <div className="w-full px-12 xs:px-4 sm:px-0 sm:w-3/5 sm:pr-16">
+            <h1
+              className="text-3xl mb-1 font-bold text-green-100 border-st
+                         xs:text-xl"
+            >
               <span className="font-medium">PHOTO</span> LAMP 3D
             </h1>
-            <h2 className="xs:text-xs text-sm mb-5 font-bold  text-purple-900">
+            <h2 className="text-xs mb-8 font-bold text-green-200 xs:mb-4">
               Start Creating your own lamp.
             </h2>
-            <p className="xs:text-xs mb-4 text-sm   text-purple-900">
+            <p className="text-xs xs:text-[0.6rem] mb-4 text-green-50">
               Transform your favorite photos into unique and custom lamps. You
               can select from a variety of pre-designed 3D frames.
             </p>
-            <p className="xs:hidden text-sm  text-purple-900">
+            <p className="text-xs xs:text-[0.6rem] text-green-50 xs:hidden ">
               You can preview your photograph in the 3D frame before printing or
               sharing it.
             </p>
+            <div className="w-full my-8 sm:mb-0">
+              <Link
+                className="text-green-300 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4
+              focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white
+              dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                href="/Lamp"
+              >
+                Start creating your own lamp
+              </Link>
+            </div>
           </div>
-        </div>
-        <div
-          className="xs:p-10 xs:min-h-[20rem] relative w-full flex-1 flex-grow-2  flex justify-center items-center min-h-[35rem]
-                        sm:2/5"
-        >
-          <div>
-            <p>three js / images sections</p>
-          </div>
-          <div className="xs:w-1/2 absolute left-0 bottom-0 sm:hidden w-1/3">
-            <Image
-              width={200}
-              height={200}
-              className="w-full"
-              quality={100}
-              src="https://res.cloudinary.com/ivanrice-c/image/upload/q_50/a_90/v1679549797/Frontend/photo-lamp-3d/corner_porvs3.webp"
-              alt="background landing page"
-            />
+          <div className="w-4/5 flex-grow-1 aspect-video border border-green-100 xs:w-full sm:w-2/5">
+            <p>three js section</p>
           </div>
         </div>
       </section>
