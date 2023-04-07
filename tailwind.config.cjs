@@ -27,6 +27,8 @@ module.exports = {
       'gradient-card-1': 'linear-gradient(45deg, #26292D 34%, #424344 100%);',
       'gradient-card-2':
         'linear-gradient(27deg, rgba(40,43,43,1) 26%, rgba(65,68,68,1) 60%, rgba(84,85,85,1) 84%, rgba(101,102,101,1) 100%);',
+      'gradient-button-1':
+        'linear-gradient(0deg, rgba(26,176,78,1) 0%, rgba(119,255,203,1) 100%)',
     },
     dropShadow: {
       '3xl': ['-5px 7px 3px #262726', '6px -6px 7px #5f605f'],
@@ -34,6 +36,8 @@ module.exports = {
       'dark-4xl': ['-17px 13px 9px #16181b', '5px -35px 15px #525453'],
       '5xl': ['-5px 5px 8px #282b2b', '6px -6px 4px #5f605f'],
       '6xl': ['-5px 5px 8px #262726', '6px -6px 4px #565755'],
+      'btn-xl': '0px 2px 8px #55CC00',
+      'btn-hover-xl': '0px 0px 5px #339900',
     },
     colors: {
       green: {
