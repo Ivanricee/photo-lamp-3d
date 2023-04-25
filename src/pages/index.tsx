@@ -1,6 +1,6 @@
 import { Button } from '@/components/Button'
 import { Layout } from '@/components/Layout'
-import { Landing3DFrames } from '@/components/Three/Landing3DFrame/Index'
+import { Landing3DFrames } from '@/components/Three/Landing3DFrame'
 import Link from 'next/link'
 
 export default function Home() {
