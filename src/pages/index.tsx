@@ -1,8 +1,25 @@
 import { Button } from '@/components/Button'
 import { Layout } from '@/components/Layout'
-import { Landing3DFrames } from '@/components/Three/Landing3DFrame'
-import Link from 'next/link'
+import { Home3DLamps } from '@/components/Three/Home3DLamps'
 
+const lamps = [
+  {
+    id: 1,
+    img: 'https://res.cloudinary.com/ivanrice-c/image/upload/v1680642524/Frontend/photo-lamp-3d/5447782_uncobk.jpg',
+    alt: 'Social media lamp with photo',
+    size: 30,
+    caption: null,
+    urlMesh: 'frame url 1',
+  },
+  {
+    id: 2,
+    img: 'https://res.cloudinary.com/ivanrice-c/image/upload/v1680642524/Frontend/photo-lamp-3d/5447782_uncobk.jpg',
+    alt: 'Glass lamp with photo',
+    size: 30,
+    caption: null,
+    urlMesh: 'lamp url 2',
+  },
+]
 export default function Home() {
   return (
     <Layout title="Home" header={false}>
@@ -43,7 +60,7 @@ export default function Home() {
           xs:w-full"
           >
             <div className="w-full ">
-              <Landing3DFrames />
+              <Home3DLamps lamps={lamps} />
             </div>
           </div>
         </div>
