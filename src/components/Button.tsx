@@ -23,7 +23,7 @@ export function Button({ children, to, disabled }: Props) {
       href={to}
       className={`${basicBtn} border-green-200 text-green-200 transition duration-300
       hover:border-green-500 hover:text-green-300 focus:border-green-600 focus:text-green-600 focus-visible:outline-none
-      drop-shadow-btn-xl hover:drop-shadow-btn-hover-xl focus:drop-shadow-btn-hover-xl`}
+      drop-shadow-btn-xl-green hover:drop-shadow-btn-hover-xl-green focus:drop-shadow-btn-hover-xl`}
     >
       <span>{children}</span>
     </Link>
