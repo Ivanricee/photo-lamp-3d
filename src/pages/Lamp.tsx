@@ -1,25 +1,28 @@
 import { Button } from '@/components/Button'
 import { Layout } from '@/components/Layout'
 import { useState } from 'react'
-import { type Lamp } from '@/types/types'
 import { Card } from '@/components/Card'
-
-type ListOfLamp = Lamp[]
+type MenuLamp = {
+  id: number | null
+  title: string | null
+  canvasUrl: string | null
+  description: string
+}
 
 interface Props {
-  listOfLamps: ListOfLamp
+  menuOfLamps: MenuLamp[]
 }
 /**
 
  */
-export default function Lamp({ listOfLamps }: Props) {
-  const [lampPicked, setlampPicked] = useState<Lamp>({
+export default function Lamp({ menuOfLamps }: Props) {
+  const [lampPicked, setlampPicked] = useState<MenuLamp>({
     id: null,
     title: null,
     canvasUrl: null,
     description: 'Chose your favorite lamp',
   })
-  const handleLampClick = (lampItem: Lamp) => {
+  const handleLampClick = (lampItem: MenuLamp) => {
     setlampPicked((lamp) => ({ ...lamp, ...lampItem }))
   }
 
@@ -32,7 +35,7 @@ export default function Lamp({ listOfLamps }: Props) {
           aria-label="list of lamps"
         >
           <li className="absolute flex flex-nowrap gap-8  justify-center items-center xs:gap-4">
-            {listOfLamps.map((lamp) => {
+            {menuOfLamps.map((lamp) => {
               return (
                 <button
                   onClick={() => handleLampClick(lamp)}
@@ -65,7 +68,7 @@ export default function Lamp({ listOfLamps }: Props) {
 }
 
 export async function getServerSideProps() {
-  const listOfLamps: ListOfLamp = await [
+  const menuOfLamps: MenuLamp[] = await [
     {
       id: 1,
       title: 'marco tipo red social',
@@ -81,7 +84,7 @@ export async function getServerSideProps() {
   ]
   return {
     props: {
-      listOfLamps,
+      menuOfLamps,
     },
   }
 }
