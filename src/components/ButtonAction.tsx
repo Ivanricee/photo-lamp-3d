@@ -1,24 +1,19 @@
-import { type idLamp } from '@/types/types'
-type homeMenuAction = {
-  id: idLamp
-  urlMesh?: string
-}
+import { type menuId } from '@/types/types'
 interface Props {
   children: React.ReactNode
-  action: ({ id, urlMesh }: homeMenuAction) => void
-  menuItem: homeMenuAction
+  action: (id: menuId) => void
+  id: menuId
   disabled: boolean
 }
 
-export function ButtonAction({ children, action, menuItem, disabled }: Props) {
+export function ButtonAction({ children, action, id, disabled }: Props) {
   const disableStyle = disabled
     ? 'scale-110 rounded-sm cursor-not-allowed shadow-none'
     : 'transition-all duration-300 group-active:scale-115 '
-
   return (
     <button
       disabled={disabled}
-      onClick={() => action(menuItem)}
+      onClick={() => action(id)}
       className={`w-full h-full p-1 flex justify-center items-center ${disableStyle}`}
     >
       {children}
