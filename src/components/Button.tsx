@@ -9,7 +9,7 @@ interface Props {
 
 export function Button({ children, to, disabled }: Props) {
   const basicBtn: string =
-    'inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-lg px-6 text-sm font-medium tracking-wide border'
+    'flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-lg px-6 text-sm font-medium tracking-wide border'
   const disabledBtn: string = `${basicBtn} border-green-800 cursor-not-allowed text-green-700 shadow-none`
   if (disabled) {
     return (
