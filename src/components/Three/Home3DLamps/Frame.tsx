@@ -1,10 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
-import {
-  useGLTF,
-  useAnimations,
-  PerformanceMonitor,
-  Select,
-} from '@react-three/drei'
+import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 //import { AnimationClip } from 'three'
 import { easing } from 'maath'
@@ -55,10 +49,6 @@ export function Frame(props: JSX.IntrinsicElements['group']) {
 
   return (
     <group>
-      <TextMesh
-        title="Framing Life in 3D"
-        caption="Capturing life's moments in a 3D  frame."
-      />
       <group
         name="Scene"
         //onPointerOver={(e) => (mixer.timeScale = 0)}
