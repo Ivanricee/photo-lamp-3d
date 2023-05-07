@@ -14,7 +14,7 @@ export function Backdrop() {
   spotBack.color.b = 0.852
 
   const spotLeft = scene.getObjectByName('sp_left') as THREE.SpotLight
-  spotLeft.intensity = 0.25
+  spotLeft.intensity = 0.4
   spotLeft.angle = 0.35
   spotLeft.decay = 2
   spotLeft.castShadow = true
@@ -24,16 +24,16 @@ export function Backdrop() {
   spotLeft.shadow.camera.near = 8
 
   const spotRight = scene.getObjectByName('sp_right') as THREE.SpotLight
-  spotRight.intensity = 2
-  spotRight.angle = 0.1
+  spotRight.intensity = 6
+  spotRight.angle = 0.115
   spotRight.castShadow = true
   spotRight.shadow.camera.far = 20
   spotRight.shadow.camera.near = 12
 
   const spotTop = scene.getObjectByName('sp_top') as THREE.SpotLight
-  spotTop.intensity = 2.3
-  spotTop.angle = 0.25
-  spotTop.decay = 3
+  spotTop.intensity = 1
+  spotTop.angle = 0.22
+  spotTop.decay = 2
   spotTop.castShadow = true
   spotTop.shadow.mapSize.x = 2048
   spotTop.shadow.mapSize.y = 2048
@@ -42,7 +42,7 @@ export function Backdrop() {
 
   return (
     <group>
-      <primitive object={scene} position={[0, -2.5, 0]}></primitive>
+      <primitive object={scene}></primitive>
     </group>
   )
 }
