@@ -2,13 +2,13 @@ import Image from 'next/image'
 import { MENU_SIZE } from '@/consts'
 import { type Lamp } from '@/types/types'
 import { ButtonAction } from './ButtonAction'
-import { useMenuAction } from '@/hooks/useMenuAction'
+import { useMenuState } from '@/hooks/useMenuState'
 
 interface Props {
   direction: string
   gap: string
   hasBackground: boolean
-  menuItems: Lamp[]
+  menuItems: Lamp[] | null
   size: symbol
   type: symbol
 }
@@ -22,8 +22,9 @@ export function Menu({
 }: Props) {
   const { SMALL, LARGE } = MENU_SIZE
 
-  const [state, action] = useMenuAction({ type })
+  const [stateId, action] = useMenuState({ type })
 
+  //styles default / size
   const styles = {
     default: '',
     bg: hasBackground ? 'bg-green-gray-950' : '',
@@ -40,7 +41,6 @@ export function Menu({
     },
     [LARGE]: { image: 'w-full', p: '', li: '', liDisabled: '' },
   }
-
   const { div, divDisabled, image, p, li, liDisabled } = styles[size]
 
   return (
@@ -48,18 +48,14 @@ export function Menu({
       <ul
         className={`flex absolute z-10 left-3 top-4 ${direction} ${gap} ${styles.bg}`}
       >
-        {menuItems.map((item) => {
-          const { img, id, alt, size, caption, urlMesh } = item
-          const isDisabled = state.id === id
+        {menuItems?.map((item) => {
+          const { alt, caption, id, img, size, text3DTest, urlFile } = item
+          const isDisabled = stateId === id
           const disabledDivStyle = isDisabled ? divDisabled : ''
           const disabledLIStyle = isDisabled ? liDisabled : ''
           return (
             <li key={id} className={`${li} ${disabledLIStyle} `}>
-              <ButtonAction
-                action={action}
-                menuItem={{ id, urlMesh }}
-                disabled={isDisabled}
-              >
+              <ButtonAction action={action} id={id} disabled={isDisabled}>
                 <div className={`${div} ${disabledDivStyle}`}>
                   <Image
                     src={img}
