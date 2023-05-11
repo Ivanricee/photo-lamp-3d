@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { MENU_SIZE } from '@/consts'
+import { MENU_SIZE } from '@/const'
 import { type Lamp } from '@/types/types'
 import { ButtonAction } from './ButtonAction'
 import { useMenuState } from '@/hooks/useMenuState'
@@ -49,7 +49,7 @@ export function Menu({
         className={`flex absolute z-10 left-3 top-4 ${direction} ${gap} ${styles.bg}`}
       >
         {menuItems?.map((item) => {
-          const { alt, caption, id, img, size, text3DTest, urlFile } = item
+          const { alt, caption, id, img, size } = item
           const isDisabled = stateId === id
           const disabledDivStyle = isDisabled ? divDisabled : ''
           const disabledLIStyle = isDisabled ? liDisabled : ''

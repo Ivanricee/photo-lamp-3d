@@ -1,5 +1,5 @@
 import { useBoundStore } from '@/stores/useBoundStore'
-import { MENU_SELECT } from '@/consts'
+import { MENU_SELECT } from '@/const'
 interface Props {
   type: symbol
 }
