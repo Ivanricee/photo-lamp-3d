@@ -7,7 +7,7 @@ export function useMenuState({ type }: Props) {
   const selectMenuHome = useBoundStore((state) => state.selectMenuHome)
   const currentLampHome = useBoundStore((state) => state.currentLampHomeId)
 
-  const { HOME, MAIN, PHOTO } = MENU_SELECT
+  const { HOME, PHOTO, LAYER } = MENU_SELECT
 
   const actionSelected = {
     [HOME]: [currentLampHome, selectMenuHome],
