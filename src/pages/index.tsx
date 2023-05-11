@@ -9,13 +9,13 @@ interface Props {
   homeLamps: Lamp[]
 }
 export default function Home({ homeLamps }: Props) {
-  const setLamps = useBoundStore((state) => state.setLamps)
+  const setHomeLamps = useBoundStore((state) => state.setHomeLamps)
   const selectMenuHome = useBoundStore((state) => state.selectMenuHome)
 
   useEffect(() => {
-    setLamps(homeLamps)
+    setHomeLamps(homeLamps)
     selectMenuHome(homeLamps[0].id)
-  }, [homeLamps, selectMenuHome, setLamps])
+  }, [homeLamps, selectMenuHome, setHomeLamps])
 
   return (
     <Layout title="Home" header={false}>
@@ -47,7 +47,7 @@ export default function Home({ homeLamps }: Props) {
                 or sharing it.
               </p>
               <div className="w-full my-8 sm:mb-0">
-                <Button to="/Lamp" disabled={false}>
+                <Button to="/LampBuilder" disabled={false}>
                   Start creating your own lamp
                 </Button>
               </div>
