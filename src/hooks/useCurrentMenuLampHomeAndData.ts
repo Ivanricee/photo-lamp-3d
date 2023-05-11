@@ -17,7 +17,7 @@ export function useCurrentMenuLampHomeAndData() {
         text3DTest: { ...lampSelected?.text3DTest },
       })
     }
-  }, [currentLampHomeId])
+  }, [currentLampHomeId, homeLamps])
 
   return [currentLampHomeId, homeLamps, gltfLampData]
 }
