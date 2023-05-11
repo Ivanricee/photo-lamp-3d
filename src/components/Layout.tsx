@@ -19,7 +19,13 @@ export function Layout({ children, title, header }: Props) {
       </Head>
 
       {header && <Header />}
-      <main className={`flex flex-1 justify-center ${item}`}>{children}</main>
+      <main
+        className={
+          'flex flex-wrap justify-center  items-center gap-8 content-center h-screen'
+        }
+      >
+        {children}
+      </main>
     </div>
   )
 }
