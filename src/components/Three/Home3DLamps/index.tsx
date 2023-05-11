@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import { Suspense, useEffect, useState } from 'react'
+import { Suspense } from 'react'
 import {
   AdaptiveDpr,
   BakeShadows,
@@ -15,28 +15,14 @@ import {
 import { Backdrop } from './Backdrop'
 import { LoaderCanvas } from '../LoaderCanvas'
 import { Menu } from '@/components/Menu'
-import { MENU_SELECT, MENU_SIZE } from '@/consts'
-import { useBoundStore } from '@/stores/useBoundStore'
+import { MENU_SELECT, MENU_SIZE } from '@/const'
 import { GLBLoader } from '../GLBLoader'
-import { type gltfData } from '@/types/types'
+
+import { useCurrentMenuLampHomeAndData } from '@/hooks/useCurrentMenuLampHomeAndData'
 
 export function Home3DLamps() {
-  const currentLampHomeId = useBoundStore((state) => state.currentLampHomeId)
-  //menu item
-  const homeLamps = useBoundStore((state) => state.homeLamps)
-  const [gltfLampData, setGltfLampData] = useState<gltfData | null>(null)
-
-  useEffect(() => {
-    if (currentLampHomeId && homeLamps) {
-      const lampSelected = homeLamps?.find(
-        (lamp) => lamp.id === currentLampHomeId
-      )
-      setGltfLampData({
-        urlFile: lampSelected?.urlFile,
-        text3DTest: { ...lampSelected?.text3DTest },
-      })
-    }
-  }, [currentLampHomeId])
+  const [currentLampHomeId, homeLamps, gltfLampData] =
+    useCurrentMenuLampHomeAndData()
 
   return (
     <div className="w-full xs:h-[370px] h-[500px] sm:h-[330px] md:h-[500px] relative">
