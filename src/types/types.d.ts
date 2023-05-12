@@ -14,12 +14,6 @@ export interface Lamp {
   urlFile: string
   text3DTest: text3DTest | null
 }
-export interface LampMenu {
-  id: number
-  title: string
-  canvasUrl: string
-  description: string
-}
 export interface progressBar {
   id: number
   step: symbol
@@ -42,7 +36,7 @@ export interface menuHomeSlice {
   homeLamps: Lamp[] | null
   currentLampHomeId: menuId
   setHomeLamps: (lamp: Lamp[]) => void
-  selectMenuHome: (selectedMenuItemHomeId: menuId) => void
+  setCurrentLampHomeId: (currentLampHomeId: menuId) => void
 }
 export interface GLTFsceneSlice {
   currentScenes: GLTFscene[]
@@ -51,5 +45,7 @@ export interface GLTFsceneSlice {
 
 export interface lampsSlice {
   lamps: LampMenu[] | null
+  currentLampId: menuId
+  setCurrentLampId: (currentLampId: menuId) => void
   addLamps: (lamp: LampMenu[]) => void
 }
