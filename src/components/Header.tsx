@@ -4,9 +4,7 @@ export function Header() {
       <div
         className="text-sm rounded-xl text-green-100 p-2 pb-3 px-4 drop-shadow-5xl bg-green-gray-600
                    sm:drop-shadow-5xl md:drop-shadow-6xl"
-      >
-        {'<--'}
-      </div>
+      ></div>
       <h1
         className="text-sm font-bold rounded-xl text-green-100  p-2 pb-3 px-4 drop-shadow-5xl bg-green-gray-600
                    sm:drop-shadow-5xl md:drop-shadow-6xl"
