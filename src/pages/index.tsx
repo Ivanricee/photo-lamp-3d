@@ -10,12 +10,14 @@ interface Props {
 }
 export default function Home({ homeLamps }: Props) {
   const setHomeLamps = useBoundStore((state) => state.setHomeLamps)
-  const selectMenuHome = useBoundStore((state) => state.selectMenuHome)
+  const setCurrentLampHomeId = useBoundStore(
+    (state) => state.setCurrentLampHomeId
+  )
 
   useEffect(() => {
     setHomeLamps(homeLamps)
-    selectMenuHome(homeLamps[0].id)
-  }, [homeLamps, selectMenuHome, setHomeLamps])
+    setCurrentLampHomeId(homeLamps[0].id)
+  }, [homeLamps, setCurrentLampHomeId, setHomeLamps])
 
   return (
     <Layout title="Home" header={false}>

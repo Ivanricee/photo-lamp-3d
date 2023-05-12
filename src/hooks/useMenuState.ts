@@ -4,13 +4,18 @@ interface Props {
   type: symbol
 }
 export function useMenuState({ type }: Props) {
-  const selectMenuHome = useBoundStore((state) => state.selectMenuHome)
-  const currentLampHome = useBoundStore((state) => state.currentLampHomeId)
+  const setCurrentLampHomeId = useBoundStore(
+    (state) => state.setCurrentLampHomeId
+  )
+  const currentLampHomeId = useBoundStore((state) => state.currentLampHomeId)
+  const currentLamp = useBoundStore((state) => state.currentLampId)
+  const setCurrentLamp = useBoundStore((state) => state.setCurrentLampId)
 
-  const { HOME, PHOTO, LAYER } = MENU_SELECT
+  const { HOME, LAMP, PHOTO, LAYER } = MENU_SELECT
 
   const actionSelected = {
-    [HOME]: [currentLampHome, selectMenuHome],
+    [HOME]: [currentLampHomeId, setCurrentLampHomeId],
+    [LAMP]: [currentLamp, setCurrentLamp],
   }
   const [stateId, action] = actionSelected[type]
   return [stateId, action]

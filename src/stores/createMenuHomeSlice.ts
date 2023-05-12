@@ -6,8 +6,8 @@ export const createMenuHomeSlice: StateCreator<menuHomeSlice> = (set) => ({
   homeLamps: null,
   currentLampHomeId: null,
   setHomeLamps: (lamps) => set({ homeLamps: lamps }),
-  selectMenuHome: (selectedMenuItemHomeId) =>
+  setCurrentLampHomeId: (currentLampHomeId) =>
     set({
-      currentLampHomeId: selectedMenuItemHomeId,
+      currentLampHomeId,
     }),
 })
