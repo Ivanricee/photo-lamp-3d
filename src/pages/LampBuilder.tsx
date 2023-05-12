@@ -1,12 +1,13 @@
+/* eslint-disable max-len */
 import { Button } from '@/components/Button'
 import { Layout } from '@/components/Layout'
 import { LampControls } from '@/components/LampControls'
 import { useBoundStore } from '@/stores/useBoundStore'
 import { useEffect } from 'react'
-import { type LampMenu } from '@/types/types'
+import { type Lamp } from '@/types/types'
 
 interface Props {
-  menuOfLamps: LampMenu[]
+  menuOfLamps: Lamp[]
 }
 
 export default function Lamp({ menuOfLamps }: Props) {
@@ -26,7 +27,7 @@ export default function Lamp({ menuOfLamps }: Props) {
           <h2 className="w-full  text-center">progress bar</h2>
         </div>
       </section>
-      <div className="w-screen flex box-border xs:p-4 sm:p-8 sm:gap-10 bg-green-900">
+      <div className="w-screen flex box-border xs:p-4 sm:p-8 sm:gap-10">
         <section className=" w-1/2">
           <LampControls />
         </section>
@@ -45,18 +46,24 @@ export default function Lamp({ menuOfLamps }: Props) {
 }
 
 export async function getServerSideProps() {
-  const menuOfLamps: LampMenu[] = await [
+  const menuOfLamps: Lamp[] = [
     {
       id: 1,
-      title: 'marco tipo red social',
-      canvasUrl: 'img provisional 1',
-      description: 'a',
+      caption: 'marco tipo red social',
+      img: 'https://res.cloudinary.com/ivanrice-c/image/upload/c_scale,dpr_auto,h_221,q_auto/v1683835486/Frontend/photo-lamp-3d/sm_lamp_wlzaaa.webp',
+      alt: 'marco tipo red social',
+      size: 200,
+      urlFile: 'url del mesh',
+      text3DTest: null,
     },
     {
       id: 2,
-      title: 'frame crystal',
-      canvasUrl: 'img provisional 2',
-      description: 'b',
+      caption: 'frame crystal',
+      img: 'https://res.cloudinary.com/ivanrice-c/image/upload/c_scale,dpr_auto,h_221,q_auto/v1683835485/Frontend/photo-lamp-3d/crystal_lamp_vnzbpr.webp',
+      alt: 'frame crystal',
+      size: 200,
+      urlFile: 'url del mesh',
+      text3DTest: null,
     },
   ]
   return {
