@@ -1,11 +1,21 @@
 export interface text3DTest {
-  id: number
   title: string
   caption: string
   position: [number, number, number]
   rotation: [number, number, number]
 }
-export interface Lamp {
+export interface ProgressBar {
+  id: number
+  step: string
+  name: string
+  status: string
+  position: [number, number, number] | null
+  rotation: [number, number, number] | null
+  title?: string | null
+  caption?: string | null
+}
+
+export interface CarouselLamp {
   id: number
   img: string
   alt: string
@@ -14,10 +24,16 @@ export interface Lamp {
   urlFile: string
   text3DTest: text3DTest | null
 }
-export interface progressBar {
+export interface Lamp {
   id: number
-  step: symbol
+  img: string
+  alt: string
+  size: number
+  caption: string | null
+  urlFile: string
+  progressBar: ProgressBar[] | null
 }
+
 export type idLamp = typeof Pick<Lamp, 'id'>
 export type urlFile = typeof Pick<Lamp, 'urlFile'>
 export type menuId = idLamp | number
@@ -27,15 +43,10 @@ export interface GLTFscene {
   scene?: THREE.Scene | null
 }
 //zustand
-export interface progressSilce {
-  progressStep: progressBar[]
-  currentProgressStep: progressBar
-  addProgressBarItem: (progressItems: progressBar) => void
-}
 export interface menuHomeSlice {
-  homeLamps: Lamp[] | null
+  homeLamps: CarouselLamp[] | null
   currentLampHomeId: menuId
-  setHomeLamps: (lamp: Lamp[]) => void
+  setHomeLamps: (lamp: CarouselLamp[]) => void
   setCurrentLampHomeId: (currentLampHomeId: menuId) => void
 }
 export interface GLTFsceneSlice {
@@ -44,8 +55,14 @@ export interface GLTFsceneSlice {
 }
 
 export interface lampsSlice {
-  lamps: LampMenu[] | null
+  lamps: Lamp[] | null
   currentLampId: menuId
+  currentProgressStep: progressBar | null
+  setCurrentProgressStep: (currentLampId: number) => void
   setCurrentLampId: (currentLampId: menuId) => void
-  addLamps: (lamp: LampMenu[]) => void
+  addLamps: (lamp: Lamp[]) => void
+  updateLampFulfilledProgressStep: (
+    currentLampId: idLamp,
+    currentProgressStepId: number
+  ) => void
 }
