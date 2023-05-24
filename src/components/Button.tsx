@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { type Lamp } from '@/types/types'
 
 interface Props {
   children: React.ReactNode
