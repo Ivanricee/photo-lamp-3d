@@ -1,19 +1,34 @@
+import { useEffect } from 'react'
 import { useBoundStore } from '@/stores/useBoundStore'
-import { type Lamp } from '@/types/types'
-import { useState } from 'react'
-import { Button } from './Button'
 import { Card } from './Card'
 import { Menu } from './Menu'
-import { MENU_SELECT, MENU_SIZE } from '@/const'
+import { BTN_TYPE, MENU_SELECT, MENU_SIZE } from '@/const'
+import { ButtonAction } from './ButtonAction'
+import { type Lamp } from '@/types/types'
 
 export function Lamp() {
   const lamps = useBoundStore((state) => state.lamps)
-
-  const [lampPicked, setlampPicked] = useState<Lamp | null>(null)
-
-  const handleLampClick = (lampItem: Lamp) => {
-    setlampPicked((lamp) => ({ ...lamp, ...lampItem }))
-  }
+  const currentLampId = useBoundStore((state) => state.currentLampId)
+  const setCurrentProgressStep = useBoundStore(
+    (state) => state.setCurrentProgressStep
+  )
+  const currentProgressStep = useBoundStore(
+    (state) => state.currentProgressStep
+  )
+  const updateLampFulfilledProgressStep = useBoundStore(
+    (state) => state.updateLampFulfilledProgressStep
+  )
+  const setCurrentLampId = useBoundStore((state) => state.setCurrentLampId)
+  useEffect(() => {
+    if (!currentLampId && lamps) {
+      setCurrentLampId(lamps[0].id)
+    }
+  }, [lamps, setCurrentLampId])
+  useEffect(() => {
+    if (currentLampId & currentProgressStep.id) {
+      updateLampFulfilledProgressStep(currentLampId, currentProgressStep.id)
+    }
+  }, [currentLampId, updateLampFulfilledProgressStep])
 
   return (
     <Card title="CHOSE A LAMP">
@@ -26,13 +41,15 @@ export function Lamp() {
         type={MENU_SELECT.LAMP}
       />
 
-      <div className="mt-8 text-center">
-        {/*<Button
-          to={`/Photograph/${lampPicked.id}`}
-          disabled={!lampPicked.id ? true : false}
+      <div className="mt-8 flex justify-center">
+        <ButtonAction
+          action={setCurrentProgressStep}
+          id={currentLampId}
+          disabled={false}
+          type={BTN_TYPE.APP}
         >
-          Next step
-        </Button>*/}
+          Next
+        </ButtonAction>
       </div>
     </Card>
   )
