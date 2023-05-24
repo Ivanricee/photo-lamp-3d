@@ -33,12 +33,13 @@ module.exports = {
     dropShadow: {
       '3xl': ['-5px 7px 3px #262726', '6px -6px 7px #5f605f'],
       '4xl': ['-18px 23px 9px #16181b', '9px -35px 20px #4A4B49'],
-      'dark-4xl': ['-17px 13px 9px #16181b', '5px -35px 15px #525453'],
+      'dark-4xl': ['-22px 18px 13px #16181b', '4px -22px 20px #40413F'],
       '5xl': ['-5px 5px 8px #282b2b', '6px -6px 4px #5f605f'],
       '6xl': ['-5px 5px 8px #262726', '6px -6px 4px #565755'],
       'btn-xl-green': '0px 2px 8px #55CC00',
       'btn-hover-xl-green': '0px 0px 5px #339900',
-      'btn-xl-gold': '0px 2px 8px #EAC033',
+      'btn-xl-gold': '0px -2px 3px #EAC033',
+      'btn-xl-gold-disabled': '0px 2px 8px #99790F',
       'btn-hover-xl-gold': '0px 0px 5px #785F0C',
     },
     colors: {
@@ -83,5 +84,16 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('daisyui')],
+  daisyui: {
+    themes: [
+      {
+        dark: {
+          ...require('daisyui/src/colors/themes')['[data-theme=dark]'],
+          primary: '#55CC00',
+          'neutral-content': 'red',
+        },
+      },
+    ],
+  },
 }
