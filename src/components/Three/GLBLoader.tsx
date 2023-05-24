@@ -6,22 +6,25 @@ import { easing } from 'maath'
 import { TextMesh } from './TextMesh'
 interface Props {
   urlFile: string
-  text3DTest: text3DTest
+  text3DTest: text3DTest | null
+  isHomeMesh?: boolean
 }
 
-export function GLBLoader({ urlFile, text3DTest }: Props) {
+export function GLBLoader({ urlFile, text3DTest, isHomeMesh = false }: Props) {
   const groupRef = useRef(null)
   useFrame((state, delta) => {
-    easing.damp3(
-      state.camera.position,
-      [
-        Math.sin(state.pointer.x / 4) * 12,
-        1.8 + state.pointer.y,
-        Math.cos(state.pointer.x / 4) * 6.8,
-      ],
-      0.4,
-      delta
-    )
+    if (isHomeMesh) {
+      easing.damp3(
+        state.camera.position,
+        [
+          Math.sin(state.pointer.x / 4) * 12,
+          1.8 + state.pointer.y,
+          Math.cos(state.pointer.x / 4) * 6.8,
+        ],
+        0.4,
+        delta
+      )
+    }
     state.camera.lookAt(0, 0.5, 0)
   })
   const url = `./gltf/${urlFile}`
