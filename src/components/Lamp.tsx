@@ -12,23 +12,13 @@ export function Lamp() {
   const setCurrentProgressStep = useBoundStore(
     (state) => state.setCurrentProgressStep
   )
-  const currentProgressStep = useBoundStore(
-    (state) => state.currentProgressStep
-  )
-  const updateLampFulfilledProgressStep = useBoundStore(
-    (state) => state.updateLampFulfilledProgressStep
-  )
+
   const setCurrentLampId = useBoundStore((state) => state.setCurrentLampId)
   useEffect(() => {
     if (!currentLampId && lamps) {
       setCurrentLampId(lamps[0].id)
     }
   }, [lamps, setCurrentLampId])
-  useEffect(() => {
-    if (currentLampId & currentProgressStep.id) {
-      updateLampFulfilledProgressStep(currentLampId, currentProgressStep.id)
-    }
-  }, [currentLampId, updateLampFulfilledProgressStep])
 
   return (
     <Card title="CHOSE A LAMP">
