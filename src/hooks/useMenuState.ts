@@ -8,14 +8,14 @@ export function useMenuState({ type }: Props) {
     (state) => state.setCurrentLampHomeId
   )
   const currentLampHomeId = useBoundStore((state) => state.currentLampHomeId)
-  const currentLamp = useBoundStore((state) => state.currentLampId)
+  const currentLampId = useBoundStore((state) => state.currentLampId)
   const setCurrentLamp = useBoundStore((state) => state.setCurrentLampId)
 
   const { HOME, LAMP, PHOTO, LAYER } = MENU_SELECT
 
   const actionSelected = {
     [HOME]: [currentLampHomeId, setCurrentLampHomeId],
-    [LAMP]: [currentLamp, setCurrentLamp],
+    [LAMP]: [currentLampId, setCurrentLamp],
   }
   const [stateId, action] = actionSelected[type]
   return [stateId, action]
