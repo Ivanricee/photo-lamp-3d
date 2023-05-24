@@ -5,7 +5,7 @@ interface Props {
 export function Card({ children, title }: Props) {
   return (
     <section
-      className="w-full flex flex-col bg-gradient-card-2 rounded-3xl drop-shadow-dark-4xl  p-8 text-center
+      className="w-full flex flex-col bg-gradient-card-1 rounded-3xl drop-shadow-dark-4xl  p-8 text-center
     sm:text-left sm:max-w-7xl"
       aria-label={title}
     >
