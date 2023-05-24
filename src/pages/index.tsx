@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { Button } from '@/components/Button'
 import { Layout } from '@/components/Layout'
-import { Home3DLamps } from '@/components/Three/Home3DLamps'
+
 import { useBoundStore } from '@/stores/useBoundStore'
-import { type text3DTest, type Lamp } from '@/types/types'
+import { type text3DTest, type CarouselLamp } from '@/types/types'
+import { Home3DLamps } from '@/components/Home3DLamps'
 interface Props {
-  text3DTest: text3DTest[]
-  homeLamps: Lamp[]
+  homeLamps: CarouselLamp[]
 }
 export default function Home({ homeLamps }: Props) {
   const setHomeLamps = useBoundStore((state) => state.setHomeLamps)
@@ -70,7 +70,7 @@ export default function Home({ homeLamps }: Props) {
 }
 
 export async function getServerSideProps() {
-  const homeLamps = await [
+  const homeLamps: CarouselLamp[] = await [
     {
       id: 1,
       img: 'https://res.cloudinary.com/ivanrice-c/image/upload/v1680642524/Frontend/photo-lamp-3d/5447782_uncobk.jpg',
@@ -79,7 +79,6 @@ export async function getServerSideProps() {
       caption: null,
       urlFile: 'frame1.glb',
       text3DTest: {
-        id: 1,
         title: 'Framing Life in 3D',
         caption: "Capturing life's moments in a 3D  frame.",
         position: [-0.7, 1, -0.33],
