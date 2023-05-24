@@ -12,11 +12,11 @@ import {
   EffectComposer,
   HueSaturation,
 } from '@react-three/postprocessing'
-import { Backdrop } from './Backdrop'
-import { LoaderCanvas } from '../LoaderCanvas'
+import { HomeBackdrop } from './HomeBackdrop'
+import { LoaderCanvas } from '../Three/LoaderCanvas'
 import { Menu } from '@/components/Menu'
 import { MENU_SELECT, MENU_SIZE } from '@/const'
-import { GLBLoader } from '../GLBLoader'
+import { GLBLoader } from '../Three/GLBLoader'
 
 import { useCurrentMenuLampHomeAndData } from '@/hooks/useCurrentMenuLampHomeAndData'
 
@@ -62,11 +62,12 @@ export function Home3DLamps() {
                 <GLBLoader
                   urlFile={gltfLampData.urlFile}
                   text3DTest={gltfLampData.text3DTest}
+                  isHomeMesh
                 />
               )}
 
               <ambientLight intensity={0.3} />
-              <Backdrop />
+              <HomeBackdrop />
               <AdaptiveDpr pixelated />
               <EffectComposer>
                 <Bloom

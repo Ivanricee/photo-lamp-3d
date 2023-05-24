@@ -1,6 +1,6 @@
 import { AccumulativeShadows, useGLTF } from '@react-three/drei'
 
-export function Backdrop() {
+export function HomeBackdrop() {
   const { scene } = useGLTF('/gltf/backdrop.glb')
 
   const stand = scene.getObjectByName('stand') as THREE.Mesh
